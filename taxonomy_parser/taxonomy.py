@@ -199,4 +199,7 @@ class TaxonomyParser:
                         except KeyError:
                             print(f"Detected a dangling node: {n['name']}")
 
-                return taxonomy
+        except (FileNotFoundError, KeyError):
+            raise Exception("Not existent or malformed input JSON file")
+
+        return self
